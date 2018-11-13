@@ -15,9 +15,14 @@ import javax.swing.JLabel;
 
 public class OtsukaiTextLabel extends JLabel {
 	
-	static String text = "";
-
+	static String text[] = new String[20];
+	int textnumber = 0;
+	
 	public OtsukaiTextLabel() {
+		for(int j = 0;j<20;j++){
+			text[j] = new String();
+		}
+		
 		setPreferredSize(new Dimension(1200,400));
 		setBounds(0,500,1200,800);
 		setOpaque(true);
@@ -25,32 +30,45 @@ public class OtsukaiTextLabel extends JLabel {
 		setBackground(Color.BLUE);
 		
 		setVerticalAlignment(JLabel.TOP);
-		setText(file_read());
+		file_read();
+		setText(text[0]);
 		setFont(new Font("MS ゴシック",Font.BOLD,48));
 		setLayout(null);
 	}
 	
-	public  String file_read(){
-		
+	public void nextText(){
+		if(text[textnumber] != null)	{
+			setText(text[textnumber]);
+			textnumber ++; 
+		}else{
+			OtsukaiMainPanel mpanel = (OtsukaiMainPanel)OtsukaiTextLabel.this.getParent();
+			mpanel.changePanel();
+		}
+	} 
+	
+	public void file_read(){
 		  String ch;
 		    try{
 		        File file = new File("text.txt");
 		        BufferedReader fr = new BufferedReader(new FileReader(file));
 
-		        while((ch = fr.readLine()) != null){	
-		        	text += ch;
-		        }
+		       
+		    	   for(int i = 0;i<20;i++){
+		    		   ch = fr.readLine();		
+			        	text[i] = ch;
+			        	System.out.println(text[i]+i);
+			        	if(ch == null){
+			        		System.out.println("text end");
+			        		break;
+			        	}
+			        }
 		        fr.close();
 		        
-		        return text;
-		        
 		      }catch(FileNotFoundException e){
-		        System.out.println(e);
-		        return "エラーが起こりました";
+		        System.out.println(e);	        
 		        
 		      }catch(IOException e){
 		        System.out.println(e);
-		        return "エラーが起こりました";
 		      }
 	  }	  
 

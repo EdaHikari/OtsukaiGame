@@ -15,7 +15,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class OtsukaiButton extends JButton implements MouseListener{
-	int type = 0;
 	BufferedImage buffImg = null;
 
 	public OtsukaiButton(String texit){
@@ -28,7 +27,6 @@ public class OtsukaiButton extends JButton implements MouseListener{
 		}
 	
 	public OtsukaiButton(){
-		type = 1;
 		setBounds(1100,700,100,100);
 		ImageIcon icon = new ImageIcon("nextbutton.png");
 		setIcon(icon);
@@ -41,7 +39,7 @@ public class OtsukaiButton extends JButton implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		OtsukaiMainPanel mpanel = (OtsukaiMainPanel)OtsukaiButton.this.getParent();
-		if(type == 0){
+		if(mpanel.scene == 0){
 			mpanel.changePanel();
 		}else{
 			mpanel.changeText();

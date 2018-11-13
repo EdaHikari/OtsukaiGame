@@ -19,6 +19,7 @@ public class OtsukaiMainPanel extends JPanel {
 
 	BufferedImage buffImg = null;
 	OtsukaiTextLabel textlabel;
+	int scene = 0;
 	
 	public OtsukaiMainPanel() {
 		setPreferredSize(new Dimension(1200,800));
@@ -48,19 +49,29 @@ public class OtsukaiMainPanel extends JPanel {
 	public void changePanel(){
 		System.out.println("change panel");
 		removeAll();
-		setImage("OtsukaiIntroductionPanel.png");		
-		OtsukaiButton nextbutton = new OtsukaiButton();
-		add(nextbutton);
-		textlabel = new OtsukaiTextLabel();
-		add(textlabel);
+		switch(scene){
+			case 0:
+				setImage("OtsukaiIntroductionPanel.png");		
+				OtsukaiButton nextbutton = new OtsukaiButton();
+				add(nextbutton);
+				textlabel = new OtsukaiTextLabel();
+				add(textlabel);							
+				break;
+				
+			case 1:
+				setImage("OtsukaiStoregatePanel.png");		
+				break;
+		}
 		repaint();
+		scene++;			
 	}
 	
 	public void changeText(){
 		System.out.println("change text");
-		remove(textlabel);
-		OtsukaiTextLabel textlabel= new OtsukaiTextLabel();
-		add(textlabel);
+		//remove(textlabel);
+		//OtsukaiTextLabel textlabel= new OtsukaiTextLabel();
+		//dd(textlabel);
+		textlabel.nextText();
 		repaint();
 	}
 }
