@@ -52,13 +52,20 @@ public class OtsukaiMainPanel extends JPanel {
 		switch(scene){
 			case 0:
 				setImage("OtsukaiIntroductionPanel.png");		
-				OtsukaiButton nextbutton = new OtsukaiButton();
-				add(nextbutton);
+				OtsukaiButton nextbutton1 = new OtsukaiButton();
+				add(nextbutton1);
 				textlabel = new OtsukaiTextLabel();
 				add(textlabel);							
 				break;
 				
 			case 1:
+				setImage("OtsukaiStoregatePanel.png");		
+				OtsukaiButton nextbutton2 = new OtsukaiButton();
+				nextbutton2.type = true;
+				add(nextbutton2);
+				break;
+
+			case 2:
 				setImage("OtsukaiStoregatePanel.png");		
 				break;
 		}

@@ -41,6 +41,7 @@ public class OtsukaiTextLabel extends JLabel {
 			setText(text[textnumber]);
 			textnumber ++; 
 		}else{
+			textnumber = 0;
 			OtsukaiMainPanel mpanel = (OtsukaiMainPanel)OtsukaiTextLabel.this.getParent();
 			mpanel.changePanel();
 		}
