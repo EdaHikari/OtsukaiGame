@@ -21,7 +21,7 @@ public class OtsukaiTexitPanel extends JPanel {
 	    Border border = new BevelBorder(BevelBorder.RAISED, Color.white, Color.black);
 		setBorder(border);
 		setBounds(0,500,1200,800);
-		OtsukaiTextLabel text = new OtsukaiTextLabel();
+		OtsukaiTextLabel text = new OtsukaiTextLabel("OtsukaiText_introduction.txt");
 		add(text);
 	}
 	

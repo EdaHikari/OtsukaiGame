@@ -25,18 +25,21 @@ public class OtsukaiButton extends JButton implements MouseListener{
 		setBackground(Color.WHITE);
 		setFont(new Font("MS ÉSÉVÉbÉN",Font.BOLD,48));
 		setFocusPainted(false);
+		setOpaque(true);
 		addMouseListener(this);
+		setVisible(true);
 		}
 	
 	public OtsukaiButton(){
 		type = false;
-		setBounds(1100,700,100,100);
-		ImageIcon icon = new ImageIcon("nextbutton.png");
+		setBounds(1050,750,100,100);
+		ImageIcon icon = new ImageIcon("resource\\picture\\nextbutton.png");
 		setIcon(icon);
 		setFocusPainted(false);
 		addMouseListener(this);
-		setVisible(true);
+		setContentAreaFilled(false);
 		setBorderPainted(false);
+		setVisible(true);
 		}
 	
 	@Override
